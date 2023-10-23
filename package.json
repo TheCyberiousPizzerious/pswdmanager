@@ -2,5 +2,25 @@
   "dependencies": {
     "nodejs": "^0.0.0",
     "sqlite3": "^5.1.6"
-  }
+  },
+  "name": "pwdmanager",
+  "version": "1.0.0",
+  "main": "main.js",
+  "devDependencies": {
+    "electron": "^27.0.2"
+  },
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheCyberiousPizzerious/pwdmanager.git"
+  },
+  "bugs": {
+    "url": "https://github.com/TheCyberiousPizzerious/pwdmanager/issues"
+  },
+  "homepage": "https://github.com/TheCyberiousPizzerious/pwdmanager#readme",
+  "description": ""
 }

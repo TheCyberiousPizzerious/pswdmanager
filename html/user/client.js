@@ -1,9 +1,0 @@
-
-
-function createDB() {
-
-}
-
-function createUsr() {
-  
-}
