@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+        <title>New Database</title>
+    </head>
+    <body>
+        <p>Gi databasen din et navn og kanskje en beskrivelse?</p>
+        <div id="newdb-form">
+            <p>Navn:</p>
+            <input type="text" id="newdb-navn">
+            <br>
+            <p>Beskrivelse:</p>
+            <input type="text" id="newdb-beskrivelse">
+        </div>
+        <div class="bottom-btns">
+            <button type="button" class="Go Back">Go Back</button>
+            <a href="newdbpwd.html">
+                <button type="button" class="Continue">Continue</button>
+            </a>
+            <button type="button" class="Cancel">Cancel</button>
+        </div>
+        <script src="./createdb.js"></script>
+    </body>
+</html>
