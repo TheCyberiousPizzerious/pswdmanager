@@ -1,6 +1,9 @@
 const { app, BrowserWindow, ipcMain, dialog } = require('electron')
 const path = require('node:path')
 
+// Require things dont know if i need these here
+const sqlite3 = require('sqlite3').verbose()
+
 async function handleFileOpen () {
   const { canceled, filePaths } = await dialog.showOpenDialog()
   if (!canceled) {
@@ -15,7 +18,12 @@ function createWindow () {
       preload: path.join(__dirname, 'preload.js') 
     }
   })
-  mainWindow.loadFile('index.html')
+  mainWindow.loadFile('index.html');
+  
+  // I have no clue is this will break the code // It does
+  //if (isDev) {
+  //  mainWindow.webContents.openDevTools();
+  //}
 }
 
 app.whenReady().then(() => {
@@ -30,3 +38,17 @@ app.whenReady().then(() => {
 app.on('window-all-closed', function () {
   if (process.platform !== 'darwin') app.quit()
 })
+
+
+// This is probably a equivalent of killing myself in code form
+// Add IPC event handler for database creation
+ipcMain.handle('create-database', async (event, dbName) => {
+  const dbPath = path.join(app.getPath('userData'), `${dbName}.db`);
+  const db = new sqlite3.Database(dbPath);
+
+  // Stapp ting inni her
+
+  db.close();
+
+  return `Database '${dbName}.db' created successfully at '${dbPath}'`;
+});
