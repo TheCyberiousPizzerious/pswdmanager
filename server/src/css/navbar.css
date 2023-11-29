@@ -1,0 +1,20 @@
+body {
+    background-color: black;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    height: fit-content;
+    background-color: aquamarine;
+}
+.navbar-topR {
+    flex-direction: row;
+    justify-content: start;
+}
+.navbar-links {
+    flex-direction: row;
+    justify-content: end;
+}
