@@ -6,6 +6,7 @@
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
     <title>Hello World!</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="navbar.css">
   </head>
   <body>
     <div id="navbar">
@@ -16,29 +17,34 @@
 
       </div>
     </div>
-    <div id="welcome">
-      <div id="wel-icon">
-        <img src="" alt="welcome icon">
+
+
+    <div id="wrapper">
+      <div id="welcome">
+          <img class="main-icon" src="" alt="welcome icon">
+          <h1 id="wel-title-h1">Welcome</h1>
       </div>
-      <div id="wel-title">
-        <h1 id="wel-title-h1">Welcome</h1>
+
+      <!-- Hvorfor virker ikke css shitten min her? -->
+      <div id="btn-div">
+        <!-- Her det skjer -->
+        <button type="button" class="db-btn" id="opendb-btn">Åpne database</button>
+        <!-- File path: <strong id="filePath"></strong> Noe Electron example shit -->
+        <!-- Her -->
+        <a class="newdb-link" href="newdb.html">
+          <button type="button" class="db-btn" id="createdb-btn">Lag ny database</button>
+        </a>
+        <!-- Under her skjer det ingenting -->
       </div>
+      <div id="recent-wrapper">
+        <p class="white-p">Nylige databaser</p>
+        <div id="resent-databases">
+
+        </div>
+      </div>
+
     </div>
 
-    <!-- Hvorfor virker ikke css shitten min her? -->
-    <div id="index-main" class="center">
-      <!-- Her det skjer -->
-      <button type="button" class="db-btn" id="opendb-btn">Åpne database</button>
-      File path: <strong id="filePath"></strong>
-      <!-- Her -->
-      <a class="newdb-link" href="newdb.html">
-        <button type="button" class="db-btn" id="createdb-btn">Lag ny database</button>
-      </a>
-      <!-- Under her skjer det ingenting -->
-    </div>
-    <div id="resent-databases">
-
-    </div>
 
 
     <script defer src="./renderer.js"></script>
