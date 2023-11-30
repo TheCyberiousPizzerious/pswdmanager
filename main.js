@@ -15,7 +15,7 @@ function createWindow () {
   const mainWindow = new BrowserWindow({
     webPreferences: {
       nodeIntegration: true,
-      preload: path.join(__dirname, 'preload.js') 
+      preload: path.join(__dirname, 'preload.js')
     }
   })
   mainWindow.loadFile('index.html');
@@ -40,7 +40,7 @@ app.on('window-all-closed', function () {
 })
 
 
-// This is probably a equivalent of killing myself in code form
+// I'm killing myself tonight
 // Add IPC event handler for database creation
 ipcMain.handle('create-database', async (event, dbName) => {
   const dbPath = path.join(app.getPath('userData'), `${dbName}.db`);

@@ -9,6 +9,7 @@
     <body>
         <p>Gi databasen din et navn og kanskje en beskrivelse?</p>
         <div id="newdb-form">
+            <!-- <form id="newdb-form"> -->
             <p>Navn:</p>
             <input type="text" id="newdb-navn">
             <br>
@@ -19,19 +20,19 @@
             <input type="text" id="newdb-password">
             <p>Bekreft Passord:</p>
             <input type="text" id="newdb-password-check">
+            <!-- </form> -->
+            <div id="error-div">
+                <p id="error-p"></p>
+            </div>
         </div>
 
         <div class="bottom-btns">
             <a href="index.html">
                 <button type="button" class="bottom-btm" id="Go-Back-button">Go Back</button>
             </a>
-            <a href="newdbpwd.html">
-                <button type="button" class="bottom-btm" id="Continue-button">Continue</button>
-            </a>
+            <button type="button" class="bottom-btm" id="Continue-button">Continue</button>
+            
             <button type="button" class="bottom-btm" id="Cancel-button">Cancel</button>
-        </div>
-        <div id="error-div">
-            <p id="error-p"></p>
         </div>
 
         <script src="./createdb.js"></script>
