@@ -10,7 +10,7 @@ body
     display: flex;
 }
 
-#wrapper 
+.wrapper 
 {
     display: flex;
     flex-direction: column;
@@ -72,3 +72,23 @@ body
 {
     color: azure;
 }
+
+.red-p
+{
+    color: red;
+}
+
+@keyframes fadeOut {
+    0% {
+      border-color: red;
+    }
+    100% {
+      border-color: transparent;
+    }
+  }
+  .fade-border {
+    border: 2px solid red;
+  }
+  .fade-out-animation {
+    animation: fadeOut 2s ease-out forwards;
+  }

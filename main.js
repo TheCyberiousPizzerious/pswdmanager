@@ -1,8 +1,10 @@
-const { app, BrowserWindow, ipcMain, dialog } = require('electron')
-const path = require('node:path')
+const { app, BrowserWindow, ipcMain, dialog } = require('electron');
+const path = require('node:path');
+const sqlite3 = require('sqlite3').verbose(); // Require things dont know if i need these here
 
-// Require things dont know if i need these here
-const sqlite3 = require('sqlite3').verbose()
+if (require('electron-squirrel-startup')) {
+  app.quit();
+}
 
 async function handleFileOpen () {
   const { canceled, filePaths } = await dialog.showOpenDialog()
@@ -18,7 +20,7 @@ function createWindow () {
     width: 810,
     height: 600,
     minWidth: 800,
-    minHeight: 480,
+    minHeight: 500,
     webPreferences: {
       nodeIntegration: true,
       preload: path.join(__dirname, 'preload.js')
@@ -26,13 +28,11 @@ function createWindow () {
   })
   mainWindow.loadFile('index.html');
 
-  console.log(mainWindow)
-  
-  // I have no clue is this will break the code // It does
-  //if (isDev) {
-  //  mainWindow.webContents.openDevTools();
-  //}
-}
+  mainWindow.webContents.openDevTools();
+
+  console.log(mainWindow);
+};
+app.on('ready', createWindow);
 
 app.whenReady().then(() => {
   ipcMain.handle('dialog:openFile', handleFileOpen)
