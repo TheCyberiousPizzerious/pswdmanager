@@ -48,14 +48,19 @@ app.on('window-all-closed', function () {
 })
 
 
-// I'm killing myself tonight
+// I'm killing myself tonight // This here should be moves I have no idea why it is located here
+
+// Move this function to somewhere else the createdb.js file specifically
 // Add IPC event handler for database creation
 ipcMain.handle('create-database', async (event, dbName) => {
   const dbPath = path.join(app.getPath('userData'), `${dbName}.db`);
   const db = new sqlite3.Database(dbPath);
 
-  // Stapp ting inni her
-
+  //Stapp ting inni her
+  //CREATE TABLE pwd (
+  //  passord
+  //  Brukernavn
+  //)
   db.close();
 
   return `Database '${dbName}.db' created successfully at '${dbPath}'`;
