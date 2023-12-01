@@ -5,34 +5,37 @@
         <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
         <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
         <title>New Database</title>
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <p>Gi databasen din et navn og kanskje en beskrivelse?</p>
-        <div id="newdb-form">
-            <!-- <form id="newdb-form"> -->
-            <p>Navn:</p>
-            <input type="text" id="newdb-navn">
-            <br>
-            <p>Beskrivelse:</p>
-            <input type="text" id="newdb-beskrivelse">
+        <div class="wrapper">
+            <p class="white-p">Gi databasen din et navn og kanskje en beskrivelse?</p>
+            <div id="newdb-form">
+                <!-- <form id="newdb-form"> --><!--Trengte vist ikke den delen like vel, takk Ono-->
+                <p class="white-p">Navn:</p>
+                <input type="text" class="newdb-req-input" id="newdb-navn">
+                <br>
+                <p class="white-p">Beskrivelse:</p>
+                <input type="text" id="newdb-beskrivelse">
 
-            <p>Passord:</p>
-            <input type="text" id="newdb-password">
-            <p>Bekreft Passord:</p>
-            <input type="text" id="newdb-password-check">
-            <!-- </form> -->
-            <div id="error-div">
-                <p id="error-p"></p>
+                <p class="white-p">Passord:</p>
+                <input type="text" class="newdb-req-input" id="newdb-password">
+                <p class="white-p">Bekreft Passord:</p>
+                <input type="text" class="newdb-req-input" id="newdb-password-check">
+                <!-- </form> -->
+                <div id="error-div">
+                    <p id="error-p" class="red-p"></p>
+                </div>
             </div>
-        </div>
 
-        <div class="bottom-btns">
-            <a href="index.html">
-                <button type="button" class="bottom-btm" id="Go-Back-button">Go Back</button>
-            </a>
-            <button type="button" class="bottom-btm" id="Continue-button">Continue</button>
-            
-            <button type="button" class="bottom-btm" id="Cancel-button">Cancel</button>
+            <div class="bottom-btns">
+                <a href="index.html" class="newdb-link">
+                    <button type="button" class="bottom-btm db-btn" id="Go-Back-button">Go Back</button>
+                </a>
+                <button type="button" class="bottom-btm db-btn" id="Continue-button">Continue</button>
+
+                <button type="button" class="bottom-btm db-btn" id="Cancel-button">Cancel</button>
+            </div>
         </div>
 
         <script src="./createdb.js"></script>
