@@ -13,3 +13,10 @@ Hvordan skal databasen virke
 jeg må enten endre side for newdb eller endre med css og js
 
 RENDERER ER BASICALLY DER DU SCRIVER FRONEND JAVASCRIPTEN DIN
+
+
+
+
+Laste ned fra hjemme maskinen
+- [ ] lage en database
+- [ ] åpne en database
