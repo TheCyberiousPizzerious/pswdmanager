@@ -9,7 +9,7 @@ let errM = document.getElementById("error-p");
 const sqlite3 = require('sqlite3')
 //const sqlc = require('sqlcipher') // Cirker 
 const path = require('node:path');
-const { ipcRenderer } = require('electron');
+const ipcRenderer = require('electron');
 //const { errorMonitor } = require('node:events');
 //const { fs } = require('fs')
 
@@ -47,35 +47,32 @@ continueBtn.addEventListener('click', () => {
     if (newdbPassord != passwordCheck) {
       errM.innerHTML = "The passwords do not match";
     } else {
-      // here ipcRenderer is needed
-      ipcRenderer.send('save-file')
-      ipcRenderer.on('location-chosen', (event, filePath) => {
-        //const dbPath = path.join(__dirname, newDBNavn + '.db'); // Make filename and path
-        //Choose filelocation needed
-  
-        const db = new sqlite3.Database(dbPath); // Makes a new instance of sqlite3
-        const createTableQuery = // Creating Query
-          ` 
-          CREATE TABLE IF NOT EXISTS password (
-          id INTEGER PRIMARY KEY AUTOINCREMENT,
-          Tittel TEXT,
-          Brukernavn TEXT,
-          Passord TEXT,
-          URL TEXT,
-          Notes TEXT,
-          Dato TEXT,
-          Endret TEXT
-          );`;
-          // SQL command to create the table
-        db.run(createTableQuery, (err) => { // for queries that return a single row
-          if (err) {
-            console.error('Error creating table:', err.message);
-          } else {
-            console.log('Table created successfully.');
-          }
-          db.close(); // Close the database connection
-        })
-      });
+      // here ipcRenderer is needed    
+      const dbPath = path.join(__dirname, newDBNavn + '.db'); // Make filename and path
+      //Choose filelocation needed
+
+      const db = new sqlite3.Database(dbPath); // Makes a new instance of sqlite3
+      const createTableQuery = // Creating Query
+        ` 
+        CREATE TABLE IF NOT EXISTS password (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        Tittel TEXT,
+        Brukernavn TEXT,
+        Passord TEXT,
+        URL TEXT,
+        Notes TEXT,
+        Dato TEXT,
+        Endret TEXT
+        );`;
+        // SQL command to create the table
+      db.run(createTableQuery, (err) => { // for queries that return a single row
+        if (err) {
+          console.error('Error creating table:', err.message);
+        } else {
+          console.log('Table created successfully.');
+        }
+        db.close(); // Close the database connection
+      })
     }
   }
 });
