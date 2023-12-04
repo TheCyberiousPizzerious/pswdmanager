@@ -4,7 +4,7 @@ const path = require('node:path');
 const sqlite3 = require('sqlite3').verbose(); // Require things dont know if i need these here
 //const path = require('path')
 
-// If dev or something
+// Some build things from the site
 if (require('electron-squirrel-startup')) {
   app.quit();
 }
@@ -39,7 +39,7 @@ function createWindow () {
 };
 app.on('ready', createWindow); // When everything is loaded make the window
 
-ipcMain.on('open-file', async (event) => {
+ipcMain.on('open-file', async (event, result) => {
   try {
     const result = await dialog.showOpenDialog(mainWindow, {
       title: 'Select a File',
@@ -56,11 +56,12 @@ ipcMain.on('open-file', async (event) => {
       event.sender.send('open-canceled'); // Just sends something to send something
     }
   } catch (err) {
+    event.sender.send(err)
     console.error(err); // if err show err
   };
 });
 
-ipcMain.on('save-file', async (event) => { // Waits for 'save-file'
+ipcMain.on('save-file', async (event, result) => { // Waits for 'save-file'
   try {
     const result = await dialog.showSaveDialog(mainWindow, { // wait for user to select
       title: 'Select File Location',
@@ -70,8 +71,11 @@ ipcMain.on('save-file', async (event) => { // Waits for 'save-file'
     })
     if (!result.canceled) { // if not canceled send the locations and thins
       event.sender.send('location-chosen', result.filePath);
+    } else {
+      event.sender.send('open-canceled')
     }
   } catch (err) {
+    event.sender.send(err)
     console.error(err)
   }
 }) 

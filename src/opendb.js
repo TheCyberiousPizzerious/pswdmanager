@@ -13,21 +13,26 @@ function getLocalPath() {
 };
 
 function openSelected() {
-  const storedDBPath = localStorage.getItem("openDBPath")
+  const storedDBPath = getLocalPath()
   //localStorage.clear() // Hvordan 
   const db = new sqlite3.Database(storedDBPath); // New sqlite instance
   const query = `SELECT * FROM password`; // Defining the query
   db.all(query, (err, rows) => { // Actually doing the query
     if (err) {
       console.log(err.message);
-      return;
+      return; // Why return here 
     }
     console.log(rows) // Dette er alt den innheneter så trenger noe "for" loop
   });
   db.close()
 };
-insertDBRow.addEventListener('click', () => {
 
+
+
+insertDBRow.addEventListener('click', () => {
+  // Shitten skal inn her som er under =>
+
+  
 });
 
 const data = { // Need getLocalPath
@@ -41,12 +46,8 @@ const data = { // Need getLocalPath
   Endret: '2023-11-18',
 };
 
-  // Send an IPC message to insert data
+console.log(data);
 
-console.log(result);
-
-//main
-  
 const db = new sqlite3.Database(data.dbPath);
 // Insert data into the table
 const insertQuery = `INSERT INTO password (Tittel, Brukernavn, Password, URL, Notes, Dato, Endret) VALUES (?, ?, ?, ?, ?, ?)`;

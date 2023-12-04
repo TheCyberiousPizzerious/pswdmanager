@@ -1,7 +1,18 @@
 const express = require("express");
-//const path = require("path");
+//const path = require("path"); 
 const app = express();
 const port = 8008;
+const filePath = path.join(__dirname, 'Files', '')
+
+
+app.post("/fileDownload", (req, res) => {
+  res.setHeader('Content-Disposition', 'attachment; filename=');
+  res.setHeader('Content-Type', 'text/plain');
+
+  const fileStream = fs.createReadStream(filePath);
+  fileStream.pipe(res);
+});
+
 
 //app.use(express.json());
 
@@ -10,23 +21,23 @@ app.get("/", (req, res) => {
 });
 
 app.get("/download", (req, res) => {
-  res.sendFile(__dirname + "/html/download.html")
+  res.sendFile(__dirname + "/src/html/download.html")
 });
 
 app.get("/docs", (req, res) => {
-  res.sendFile(__dirname + "/html/docs.html")
+  res.sendFile(__dirname + "/src/html/docs.html")
 });
 
 app.get("/faq", (req, res) => {
-  res.sendFile(__dirname + "/html/faq.html")
+  res.sendFile(__dirname + "/src/html/faq.html")
 });
 
 app.get("/team", (req, res) => {
-  res.sendFile(__dirname + "/html/team.html")
+  res.sendFile(__dirname + "/src/html/team.html")
 });
 
 app.listen(port, () => {
-  console.log('server is running on port:' + port);
+  console.log('server is running on port: ' + port);
 })
 
 // Shitten virker ikke fiks det din kjøttpøkk
