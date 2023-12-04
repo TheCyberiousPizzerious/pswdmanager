@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>New Database</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="./createdb.js" defer></script>
+    </head>
+    <body>
+        <div id="navbar">
+            <div id="nav-icon">
+      
+            </div>
+            <div id="nav-search">
+      
+            </div>
+          </div>
+        <div class="wrapper">
+            <p class="white-p">Gi databasen din et navn og kanskje en beskrivelse?</p>
+            <div id="newdb-form">
+                <!-- <form id="newdb-form"> --><!--Trengte vist ikke den delen like vel, takk Ono-->
+                <p class="white-p">Navn:</p>
+                <input type="text" class="newdb-req-input" id="newdb-navn">
+                <br>
+                <p class="white-p">Beskrivelse:</p>
+                <input type="text" id="newdb-beskrivelse">
+
+                <p class="white-p">Passord:</p>
+                <input type="text" class="newdb-req-input" id="newdb-password">
+                <p class="white-p">Bekreft Passord:</p>
+                <input type="text" class="newdb-req-input" id="newdb-password-check">
+                <!-- </form> -->
+                <div id="error-div">
+                    <p id="error-p" class="red-p"></p>
+                </div>
+            </div>
+
+            <div class="bottom-btns">
+                <a href="index.html" class="newdb-link">
+                    <button type="button" class="bottom-btm db-btn" id="Go-Back-button">Go Back</button>
+                </a>
+                <button type="button" class="bottom-btm db-btn" id="Continue-button">Continue</button>
+
+                <button type="button" class="bottom-btm db-btn" id="Cancel-button">Cancel</button>
+            </div>
+        </div>
+    </body>
+</html>

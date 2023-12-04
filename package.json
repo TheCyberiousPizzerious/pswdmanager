@@ -1,20 +1,54 @@
 {
   "dependencies": {
+    "electron-squirrel-startup": "^1.0.0",
     "express": "^4.18.2",
-    "nodejs": "^0.0.0",
-    "sqlite3": "^5.1.6"
+    "nodejs": "^0.0.0"
   },
   "name": "pwdmanager",
+  "producName": "Rebel Manager",
   "version": "1.0.0",
-  "main": "main.js",
+  "main": "src/main.js",
   "devDependencies": {
-    "electron": "^27.0.2"
+    "@electron-forge/cli": "^7.2.0",
+    "electron": "^27.1.3",
+    "electron-builder": "^24.9.1"
   },
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "publish": "electron-forge publish",
+    "lint": "echo \"No linting configured\""
   },
-  "author": "",
+  "author": "GooberGaming",
   "license": "ISC",
+  "config": {
+    "forge": {
+      "packagerConfig": {},
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "tron_forge"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {}
+        }
+      ]
+    }
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/TheCyberiousPizzerious/pwdmanager.git"
