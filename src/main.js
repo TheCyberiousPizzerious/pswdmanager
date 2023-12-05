@@ -33,9 +33,7 @@ function createWindow () {
     }
   })
   mainWindow.loadFile('src/index.html'); // HTML file to load
-
   //mainWindow.webContents.openDevTools(); // Auto open devtools
-
 };
 app.on('ready', createWindow); // When everything is loaded make the window
 
