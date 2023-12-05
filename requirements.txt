@@ -1,4 +1,4 @@
-node for backend
-express sometime later
-electron for some shii
-sqlite3 for le database
+node 
+express 
+electron 
+sqlite3 

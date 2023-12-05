@@ -1,6 +1,6 @@
 openSelected() // Opening the query and printing (not yet tho)
 // Node modules import
-const { app } = require('electron');
+const app = require('electron');
 const path = require('path');
 const sqlite3 = require('sqlite3').verbose();
 

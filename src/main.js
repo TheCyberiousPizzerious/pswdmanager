@@ -28,8 +28,8 @@ function createWindow () {
     //Options
     webPreferences: {
       nodeIntegration: true, //Allows render scripts to use modules
-      contextIsolation: false //Allows to use modules outside of preload and main
-      //preload: path.join(__dirname, 'preload.js') //Preload script loader
+      contextIsolation: false, //Allows to use modules outside of preload and main
+      preload: path.join(__dirname, 'preload.js') //Preload script loader
     }
   })
   mainWindow.loadFile('src/index.html'); // HTML file to load

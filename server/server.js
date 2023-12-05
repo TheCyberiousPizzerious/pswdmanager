@@ -22,6 +22,11 @@ app.get("/", (req, res) => {
 
 app.get("/download", (req, res) => {
   res.sendFile(__dirname + "/src/html/download.html")
+    res.setHeader('Content-Disposition', 'attachment; filename=example.txt');
+    res.setHeader('Content-Type', 'text/plain');
+
+    const fileStream = fs.createReadStream(filePath);
+    fileStream.pipe(res);
 });
 
 app.get("/docs", (req, res) => {

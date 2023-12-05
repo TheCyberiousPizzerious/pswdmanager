@@ -3,7 +3,7 @@ const opendbBtn = document.getElementById('opendb-btn');
 const errM = document.getElementById("err-p")
 
 //Importing Node modules
-const { ipcRenderer } = require("electron");
+const ipcRenderer = require("electron");
 
 opendbBtn.addEventListener('click', async () => {
   ipcRenderer.send('open-file'); //Send request
