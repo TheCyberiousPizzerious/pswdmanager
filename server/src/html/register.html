@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dowload!</title>
+    <title>Register</title>
 </head>
 <body>
     <div id="Header">
@@ -23,8 +23,22 @@
             <a class="navlink" href="https://github.com/TheCyberiousPizzerious/pwdmanager">Github</a> <!-- link til github page -->
         </div>
     </div>
-    <p>Thank you for downloading</p>
-    <p>link if the program did not start</p>
-    <a href="" download>Download the program!</a>
+    <strong>Please log in to countinue</strong>
+
+    <label for="username">Username:</label>
+    <input type="text" id="username">
+
+    <label for="password">Password:</label>
+    <input type="text" id="password">
+
+    <label for="email">Email:</label>
+    <input type="text" id="email">
+
+    <button id="register-btn">Register!</button>
+
+    <p id="error-el"></p>
+
+    </div>
+    <script src="../script/register.js"></script>
 </body>
 </html>
