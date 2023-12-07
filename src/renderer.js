@@ -20,7 +20,7 @@ opendbBtn.addEventListener('click', async () => {
       errM.innerHTML = "The file selected is not a valid file. Make sure that the file is a .db file";
     }
   });
-  ipcRenderer.on('save-canceled', (err) => {
+  ipcRenderer.on('save-canceled', (err) => { // Should send a request to main but does not auda
     console.error(err);
   })
 });

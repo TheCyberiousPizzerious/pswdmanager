@@ -42,8 +42,8 @@ const data = { // Need getLocalPath
   Passord: 'Secret Password',
   URL: 'http://example.com',
   Notater: 'Sample Notes',
-  Dato: '2023-11-18',
-  Endret: '2023-11-18',
+  Dato: '03-12-2023',
+  Endret: '03-12-2023',
 };
 
 console.log(data);

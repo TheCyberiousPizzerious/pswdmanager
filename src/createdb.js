@@ -13,18 +13,12 @@ const ipcRenderer = require('electron');
 //const { errorMonitor } = require('node:events');
 //const { fs } = require('fs')
 
-// Function that creates database
+// Ask for main save location dialog
 function politeMainAsk() {
   ipcRenderer.send('save-file')
   ipcRenderer.on('location-chosen', (event, filePath) => {
-
-
   });
 };
-
-
-
-
 // Kind of the main function with anonymous function
 continueBtn.addEventListener('click', () => {
   //Import al needed elements
@@ -39,7 +33,6 @@ continueBtn.addEventListener('click', () => {
     "Password: " + newdbPassord + ",\n",
     "Password check: " + passwordCheck
   )
-  console.log("Navnet:" + newDBNavn + "og beskrivelsen:" + newDBBeskrivelse)
   // Check if any required fields are empty
   if (newDBNavn == '' || newdbPassord == '' || passwordCheck == '') {
     errM.innerHTML = "Please fill inn all the required fields";
@@ -65,7 +58,7 @@ continueBtn.addEventListener('click', () => {
         Endret TEXT
         );`;
         // SQL command to create the table
-      db.run(createTableQuery, (err) => { // for queries that return a single row
+      db.run(createTableQuery, (err) => { // run is for queries that return a single row
         if (err) {
           console.error('Error creating table:', err.message);
         } else {

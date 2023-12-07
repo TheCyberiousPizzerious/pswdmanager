@@ -10,7 +10,7 @@ const MySQLStore = require('express-mysql-session')(session);
 
 const app = express();
 const port = 8008;//What port the server is running on
-const address = "10.2.2.185";//Define the ip address
+const address = "10.0.0.16";//Define the ip address
 const key = "#)7avwKsEndQdE2pkv^i";//Random key
 
 //--------------------------------//
@@ -111,7 +111,7 @@ app.post("/api/login", (req, res) => {//Request to login
 //--------------------------------//
 
 app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/src/html/server.html");
+  res.sendFile(__dirname + "/index.html");
 });
 
 app.get("/download", (req, res) => {
