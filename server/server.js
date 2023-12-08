@@ -9,8 +9,7 @@ const bodyParser = require('body-parser');
 const MySQLStore = require('express-mysql-session')(session);
 
 const app = express();
-const port = 8008;//What port the server is running on
-const address = "10.0.0.16";//Define the ip address
+const port = 80;//What port the server is running on
 const key = "#)7avwKsEndQdE2pkv^i";//Random key
 
 //--------------------------------//
@@ -36,20 +35,20 @@ const sessionConfig = {
 //       * Session storage *      //
 //--------------------------------//
 
-//const storeSession = new MySQLStore(sessionConfig);//New sql instance
-//connection.connect();//Connect to the database
-//app.use(bodyParser.json());//For parsing json requests
-//app.use(session({//sql session info that should be stored
-//  key: 'session_cookie',
-//  secret: 'session_secret',
-//  store: storeSession,
-//  resave: false,
-//  saveUninitialized: true,
-//  cookie: {
-//    secure: false,
-//    maxAge: 999999//How long the session will last
-//  }
-//}));
+const storeSession = new MySQLStore(sessionConfig);//New sql instance
+connection.connect();//Connect to the database
+app.use(bodyParser.json());//For parsing json requests
+app.use(session({//sql session info that should be stored
+  key: 'session_cookie',
+  secret: 'session_secret',
+  store: storeSession,
+  resave: false,
+  saveUninitialized: true,
+  cookie: {
+    secure: false,
+    maxAge: 999999//How long the session will last
+  }
+}));
 
 //--------------------------------//
 //    * Create post request *     //
@@ -135,9 +134,8 @@ app.get("/logout", (req, res) => {
   req.session.destroy();
 });
 
-const set = app.listen(port, address, () => {
-  console.log('server is running on: ' + address + ":" + port);
+app.listen(port, () => {//Listen on this port
+  console.log(`Server running at ${port}`);
 });
 
-console.log(set)
 app.use(express.static('src')); // Make so that the user cannot acess anything outside of /src/
